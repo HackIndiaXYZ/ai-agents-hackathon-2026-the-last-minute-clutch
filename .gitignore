@@ -1,0 +1,59 @@
+# ─── Python ───────────────────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg-info/
+dist/
+build/
+*.egg
+*.whl
+
+# ─── Virtual Environments ────────────────────────────────────────────────────
+.venv/
+venv/
+env/
+ENV/
+
+# ─── Environment & Secrets ───────────────────────────────────────────────────
+.env
+.env.local
+.env.*.local
+
+# ─── IDE ──────────────────────────────────────────────────────────────────────
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+.classpath
+
+# ─── Testing & Coverage ──────────────────────────────────────────────────────
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.nox/
+
+# ─── Docker Volumes (local persistence) ──────────────────────────────────────
+docker_volumes/
+neo4j_data/
+redis_data/
+
+# ─── OS Artifacts ─────────────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# ─── Logs & Temp ──────────────────────────────────────────────────────────────
+*.log
+tmp/
+temp/
+
+# ─── Mypy ─────────────────────────────────────────────────────────────────────
+.mypy_cache/
+
+# ─── Output Data ──────────────────────────────────────────────────────────────
+output/
+hackathondetails.txt
