@@ -97,12 +97,19 @@ class AdaptiveDataClient:
                 path=str(path),
                 name=dataset_name,
             )
+            # The SDK might return 'id' or 'dataset_id' depending on the response model
+            dataset_id = getattr(result, "id", getattr(result, "dataset_id", None))
+            if dataset_id is None and hasattr(result, "model_dump"):
+                dataset_id = result.model_dump().get("dataset_id")
+            
+            status = getattr(result, "status", "uploaded")
+            
             logger.info(
                 "adaption_client.uploaded",
-                dataset_id=result.id,
+                dataset_id=dataset_id,
                 name=dataset_name,
             )
-            return {"dataset_id": result.id, "name": dataset_name, "status": result.status}
+            return {"dataset_id": dataset_id, "name": dataset_name, "status": status}
         except Exception as exc:
             raise AdaptionAPIError(f"Upload failed: {exc}") from exc
 
